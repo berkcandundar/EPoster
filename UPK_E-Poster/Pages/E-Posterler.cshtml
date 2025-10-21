@@ -1,0 +1,1370 @@
+﻿@page
+@model PosterlerModel
+@{
+    ViewData["Title"] = "Posterler";
+}
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+          let currentFilter = "*"; // Başlangıçta 'Tümü' aktif
+
+          // Gün filtresi
+          $('.filters_menu li').click(function () {
+            $('.filters_menu li').removeClass('active');
+            $(this).addClass('active');
+
+            currentFilter = $(this).attr('data-filter');
+            applyFilters();
+          });
+
+          // Arama filtresi
+          $('#searchInput').on('keyup', function () {
+            applyFilters();
+          });
+
+          // 🔍 Filtreleri birleştiren fonksiyon
+          function applyFilters() {
+            var searchValue = $('#searchInput').val().toLowerCase();
+
+            // Hepsini gizle
+            $('.grid .all').hide();
+
+            // Filtrelenenleri göster
+            var matchedItems = $('.grid .all').filter(function () {
+              var matchesDay = currentFilter === "*" || $(this).is(currentFilter);
+              var matchesSearch = $(this).text().toLowerCase().indexOf(searchValue) > -1;
+              return matchesDay && matchesSearch;
+            });
+
+            matchedItems.show();
+
+            // Hiç eşleşme yoksa mesajı göster
+            if (matchedItems.length === 0) {
+              $('#noResults').fadeIn(200);
+            } else {
+              $('#noResults').fadeOut(200);
+            }
+          }
+        });
+    </script>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="wwwroot/images/favicon.png" type="">
+
+    <title> Feane </title>
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+    <!--owl slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <!-- nice select  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+    <!-- font awesome style -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+
+</head>
+<body class="sub_page">
+<div class="text-center">
+
+    
+        <!-- food section -->
+
+        <section class="food_section layout_padding">
+            <div class="container">
+                <div class="heading_container heading_center">
+                    <h2>61. Ulusal Psikiyatri Kongresi E-Posterler</h2>
+                </div>
+
+                <!-- 🔍 Arama kutusu -->
+                <div style="text-align:center; margin-bottom:20px;margin-top:20px;">
+                    <input type="text" id="searchInput" placeholder="İsim veya numara ile ara..."
+                           style="padding:8px 12px; width:60%; border:1px solid #ccc; border-radius:5px;">
+                </div>
+
+                <!-- 🗓️ Gün filtre menüsü -->
+                <ul class="filters_menu">
+                    <li class="active" data-filter="*">Tümü</li>
+                    <li data-filter=".persembe">23 Ekim Perşembe</li>
+                    <li data-filter=".cuma">24 Ekim Cuma</li>
+                    <li data-filter=".cumartesi">25 Ekim Cumartesi</li>
+                </ul>
+
+                <!-- 📋 Poster içeriği -->
+                <div class="filters-content">
+                    <div class="row grid">
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>1096 - Koray Hamza Cihan</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk1/1096.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>4072 - Sude Kök</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk1/4072.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>4231 - Ayça Parlakdağ</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk1/4231.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>6394 - Elif Çetintaş</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk1/6394.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>7303 - Munise Dinçarslan</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk1/7303.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>6611 - Seren Ezgi Özen</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk2/6611.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>6713 - Zahid Emre Kösecik</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk2/6713.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>1419 - İlayda Aydın</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk2/1419.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>6604 - Merve Gök</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk2/6604.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>8040 - İrem Betül Bulacak Usta</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk2/8040.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>2931 - Gamze Gürcan</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk2/2931.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>4975 - Ezgi Beril BERBER</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk2/4975.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>3058 - Süleyman Alperen Daşcı</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk3/3058.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>4612 - Gözde Avcı Büyükdoğan</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk3/4612.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>9152 - Fatma Gizem Altunsu</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk3/9152.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>9532 - Hatice Ceyda Ereğli</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk3/9532.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>4390 - Misem Selin İlhan</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk3/4390.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>3678 - Burcu Çalık</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk3/3678.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>1456 - Medine İrem TUĞ</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk3/1456.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>4238 - Ufuk İlhan Kesmez</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk4/4238.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>9717 - Mehmet Akif Kılıç</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk4/9717.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>1638 - Hasan Arda Yiğit</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk4/1638.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>3495 - Berke Tuğ</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk4/3495.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>2360 - Bengi Başar</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk4/2360.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>7292 - Fulya Balcı</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk4/7292.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>2658 - İpek Aksakal</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk4/2658.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>9477 - Gökçen Güven</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk5/9477.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>1496 - Mahmut Balamur</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk5/1496.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>2022 - Merve Çaral</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk5/2022.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>3671 - Zeynep Yalçın Kahya</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk5/3671.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>4034 - Ahsen Aybüke Yıldırım</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk5/4034.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>8808 - Şeyma YAKA</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk5/8808.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all persembe">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>6308 - Elif Nur Yılmaz</h5>
+                                    <p>
+                                        <a href="/e-Posterler/persembe/kiosk5/6308.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ❗ CUMA -->
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>8618 - İsmail Emre Ak</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk1/8618.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>9446 - Elif Sude LALE</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk1/9446.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>6231 - İrem Açıkkar</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk1/6231.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>8274 - Nilgün Gamze Gündüz</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk1/8274.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>2068 - Zahid Emre Kösecik</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk1/2068.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>9801 - Kutay Akpınar</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk1/9801.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>9890 - Ranâ Ahsen Ak</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk1/9890.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>3503 - Ömer Taha Karaaslan</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk1/3503.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ❗ CUMA kiosk2 -->
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>6018 - Merve Simay Ediş</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk2/6018.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>6352 - Aylin Aydın</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk2/6352.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>2045 - Ayşe Köksal</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk2/2045.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>9916 - Şeymanur Güven</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk2/9916.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>6866 - Okan Görkem</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk2/6866.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>7199 - Serpil Ceylan Hoca</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk2/7199.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>3106 - Emine Gizem Olcar</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk2/3106.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ❗ CUMA kiosk3 -->
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>6403 - Emek Esra Şahinbaş</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk3/6403.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>5801 - Deniz Şahin Yavuz</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk3/5801.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>4458 - İrem Sanem Sabahi</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk3/4458.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>8653 - Elif Nur Yılmaz</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk3/8653.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>8075 - Mustafa Kaan Keleş</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk3/8075.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>6870 - Hande Arslan</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk3/6870.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>1104 - Doğan Akalın</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk3/1104.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>9715 - Aslı Uğur Oktar</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk3/9715.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ❗ CUMA kiosk4 -->
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>8774 - Serpil Ceylan Hoca</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk4/8774.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>9257 - Yağmur İrem Kara</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk4/9257.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>6839 - Rukiye Engin Örs</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk4/6839.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>2370 - Reyhan Doğan</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk4/2370.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>9608 - Hazal Ulusoy</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk4/9608.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>7352 - Hazal Demirer</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk4/7352.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>9371 - Ömer Recep Özcömert</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk4/9371.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ❗ CUMA kiosk5 -->
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>2248 - Dilara Zengince</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk5/2248.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>7887 - Pınar Eğilmez</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk5/7887.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>1006 - Esra Bengü Avaner</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk5/1006.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>7443 - Beyza Uyanık</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk5/7443.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>1613 - Bahar Ezgi Ozturk Kertmen</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk5/1613.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>8498 - Elif Ece Arslan Yıldırım</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk5/8498.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cuma">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>6789 - Öznur Tosun</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cuma/kiosk5/6789.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ❗ CUMARTESİ kiosk1 -->
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>8993 - Deniz Anmak</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk1/8993.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>8330 - Semra Özdemir</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk1/8330.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>8437 - Sabri Artun Çabuk</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk1/8437.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>7692 - Aysu Dursun</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk1/7692.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>5816 - Süleyman Çankaya</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk1/5816.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>4298 - Vahdet Çınar</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk1/4298.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>3712 - Şenay Taşkın</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk1/3712.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ❗ CUMARTESİ kiosk2 -->
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>1963 - Aslı Enzel Koç</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk2/1963.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>9891 - Ece Yıldız</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk2/9891.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>3962 - Naciye Ayşe Bağcı</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk2/3962.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>5195 - Fatma Karsavurdan</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk2/5195.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>9076 - Havva Büşra Güney</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk2/9076.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>4636 - Aslıhan Taş</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk2/4636.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>1774 - İrem Nur Demirel</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk2/1774.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>8251 - Elif Sevinçhan</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk2/8251.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>2519 - Hümeyra Yüce Kılıç</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk2/2519.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ❗ CUMARTESİ kiosk3 -->
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>3137 - Ayşenur Erde</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk3/3137.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>4432 - Mehmet Uluçay</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk3/4432.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>8268 - Aslı Enzel Koç</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk3/8268.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>9682 - Merve Çiğdem Gülgen</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk3/9682.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>1415 - Rana Polat</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk3/1415.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>3367 - Elif Aydın</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk3/3367.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>4141 - Rüveyda Özel</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk3/4141.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>9280 - Murat Salih Bulut</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk3/9280.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ❗ CUMARTESİ kiosk4 -->
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>8538 - Beyza Nur Ziyagil</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk4/8538.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>2504 - Tuğba Nur Sayımlar Erginay</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk4/2504.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>6291 - Ceylin Köksal</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk4/6291.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>8640 - Esat Sabuncu</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk4/8640.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>8571 - Abdullah Furkan Özer</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk4/8571.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>2621 - Meliha Ceren Erkul Naghizade</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk4/2621.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ❗ CUMARTESİ kiosk5 -->
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>7536 - Aybüke Nihal Dik</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk5/7536.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>3831 - Lütfiye Çelik</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk5/3831.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>5750 - Nuri Atasoy</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk5/5750.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>9582 - Beyza Ayçanur Akkuş</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk5/9582.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>9483 - Gökçen Arık</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk5/9483.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>9239 - Selin Önder</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk5/9239.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>9720 - Burcu Kılıç Göçhasanoğlu</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk5/9720.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>4810 - Şükret Alev</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk5/4810.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>1991 - Şükret Alev</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk5/1991.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 all cumartesi">
+                            <div class="box">
+                                <div class="detail-box" style="margin-top:5%">
+                                    <h5>7946 - Selen Özdağlı</h5>
+                                    <p>
+                                        <a href="/e-Posterler/cumartesi/kiosk5/7946.pdf" target="_self"
+                                           style="color:white; text-decoration:none;">E-Posteri açmak için tıklayınız</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <!-- ❗ Sonuç yok mesajı -->
+                <div id="noResults" style="display:none; text-align:center; color:#999; font-size:18px; margin-top:30px;">
+                    Poster bulunamadı.
+                </div>
+            </div>
+        </section>
+        
+
+
+
+
+<!-- end food section -->
+<!-- footer section -->
+<!-- footer section -->
+<!-- jQery -->
+<script src="js/jquery-3.4.1.min.js"></script>
+<!-- popper js -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<!-- bootstrap js -->
+<script src="js/bootstrap.js"></script>
+<!-- owl slider -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+</script>
+<!-- isotope js -->
+<script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+<!-- nice select -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+<!-- custom js -->
+<script src="js/custom.js"></script>
+<!-- Google Map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+</script>
+<!-- End Google Map -->
+</body>
+</div>
