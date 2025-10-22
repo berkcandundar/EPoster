@@ -17,7 +17,11 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.MapGet("/", context =>
+{
+    context.Response.Redirect("/E-Posterler");
+    return Task.CompletedTask;
+});
 app.UseAuthorization();
 
 app.MapRazorPages();
